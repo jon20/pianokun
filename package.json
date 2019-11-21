@@ -1,0 +1,19 @@
+{
+  "name": "pianokun",
+  "version": "1.0.0",
+  "description": "My first-class Nuxt.js project",
+  "author": "jon",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2",
+    "vue-youtube": "^1.4.0"
+  },
+  "devDependencies": {}
+}
