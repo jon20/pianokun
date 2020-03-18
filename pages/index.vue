@@ -1,5 +1,19 @@
 <template>
   <div>
+    <b-field>
+      <b-input
+        placeholder="再生したいyoutubeのurlを貼り付けてください"
+        v-model="search"
+        icon="magnify"
+      >
+      </b-input>
+      <p class="control">
+        <button
+          @click="searchVideo"
+          class="button is-primary"
+        >Search</button>
+      </p>
+    </b-field>
     <div class="container is-fullhd is-three-quarters">
       <youtube
         :video-id="videoId"
@@ -146,7 +160,8 @@ export default {
       isRepeat: false,
       undo: null,
       redo: null,
-      url: ""
+      url: "",
+      search: ""
     };
   },
   methods: {
@@ -223,6 +238,16 @@ export default {
         setTimeout(resolve, sec * 1000);
         //setTimeout(() => {reject(new Error("エラー！"))}, sec*1000);
       });
+    },
+    searchVideo() {
+      console.log("hoe");
+      console.log(this.search);
+      if (!this.search.includes("https")) {
+        this.search = "htps://" + this.search;
+      }
+      const ur = new URL(this.search);
+      const pm = new URLSearchParams(ur.search);
+      this.videoId = pm.get("v");
     }
   },
   computed: {
@@ -244,7 +269,7 @@ iframe {
   height: 80vh;
 }
 .items {
-  padding-top: 80vh;
+  padding-top: 85vh;
   padding-left: 10vw;
 }
 </style>
