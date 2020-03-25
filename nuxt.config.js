@@ -1,5 +1,8 @@
 export default {
   mode: 'universal',
+  router: {
+    base: '/pianokun/'
+  },
   /*
    ** Headers of the page
    */
